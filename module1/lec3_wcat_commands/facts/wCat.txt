@@ -1,0 +1,6 @@
+#wCat commands
+#cat f1.txt-->shows the content of f1.txt
+#cat f1.txt f2.txt-->shows the content of f1.txt and f2.txt
+#cat -s-->It removes the empty lines.
+#cat -b-->It counts the non empty lines.
+#cat -n-->it counts all the lines.

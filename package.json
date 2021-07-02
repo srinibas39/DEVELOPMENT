@@ -1,0 +1,26 @@
+{
+  "name": "development",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srinibas39/DEVELOPMENT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/srinibas39/DEVELOPMENT/issues"
+  },
+  "homepage": "https://github.com/srinibas39/DEVELOPMENT#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.6",
+    "json2xls": "^0.1.2",
+    "puppeteer": "^10.0.0",
+    "request": "^2.88.2"
+  }
+}
