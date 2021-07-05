@@ -1,0 +1,59 @@
+*{
+    box-sizing:border-box;
+    padding: 0px;
+    margin: 0px;
+
+}
+
+.todo-list-box {padding: 10px;}
+
+button.todo-add {display: block;margin: auto;width: 20%;height: 60%;border: none;border-radius: 40px;font-weight: bold;font-size: 21px;border: 5px solid;border-color: antiquewhite;color: violet;}
+body{
+
+background-color: #be2edd;
+}
+.todo-input-box{
+
+padding: 20px;
+
+height: 100px;
+}
+.todo-adder{
+
+height: 52px;
+
+width: 84%;
+
+border: 0px;
+
+border-radius: 29px;
+
+padding: 20px;
+
+font-size: 25px;
+
+display: block;
+
+margin: auto;
+
+margin-bottom: 22px;
+}
+.todo-item{
+    background-color: #e056fd;
+    width: 50%;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 66px;
+    padding: 15px;
+    text-align: center;
+}
+.todo-name{color: antiquewhite;font-size: 27px;margin: auto;}
+
+
+button.todo-button {
+    background-color: #e74c3c;
+    color: white;
+    width: 70px;
+    height: 25px;
+    border: none;
+}
