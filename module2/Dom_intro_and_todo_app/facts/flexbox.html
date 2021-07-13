@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <style>
+        .flexbox{
+            display: flex;
+            justify-content:center;
+            height: 600px;
+            align-items: center;
+            flex-direction: column;
+            flex-wrap: wrap;
+            
+            
+    
+        
+        }
+        .flexbox-item{
+           border:1px solid;
+           width:300px;
+           background-color:blue;
+        }
+        .fbi1{
+            min-height:100px;
+            align-self: center;
+          
+        }
+        .fbi2{
+           min-height:200px;
+           align-self: flex-start;
+        }
+        .fbi3{
+           min-height:150px;
+           align-self: flex-end;
+        }
+      
+
+    </style>
+</head>
+<body>
+    <div class="flexbox">
+        <div class="flexbox-item fbi1">Flexbox item-1</div>
+        <div class="flexbox-item fbi2">Flexbox item-2</div>
+        <div class="flexbox-item fbi3">Flexbox item-3</div>
+          <!--justify content-main axis
+              align items-cross axis
+              flex direction-changes intercanges main axis and cross axis
+              flex wrap- used when screen size reduces ,content niche chali jati he
+            -->
+    </div>
+
+    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>position Sticky</title>
+    <style>
+        .parent {
+            height: 200vh;
+            padding: 10px;
+            background-color: violet;
+            
+        }
+
+        .child {
+            height: 60px;
+        }
+
+        .one {
+            background-color: yellow;
+            position: sticky;
+            top: 0px;
+            
+        }
+
+        .two {
+            background-color: yellowgreen;
+        }
+
+        .three {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <!--Positon Absolute
+    It depends on the body
+    Can set properties like top bottom left right
+    -->
+    <div class="parent">
+        <div class="child one">Child 1</div>
+        <div class="child two">Child 2</div>
+        <div class="child three">Child 3</div>
+    </div>
+    
+</body>
+</html>

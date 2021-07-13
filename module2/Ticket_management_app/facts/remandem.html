@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rem and em</title>
+</head>
+<style>
+    .rem {
+        font-size: 2rem;
+    }
+
+    .em {
+        font-size: 2em;
+    }
+
+    .parent {
+        font-size: 2rem;
+    }
+</style>
+
+<body>
+    <!--1rem=16px
+        em size depends on its parent size-->
+    <div class="rem">2rem</div>
+    <div class="em">2em</div>
+    <div class="parent">
+        <div class="rem">2rem</div>
+        <div class="em">2em</div>
+    </div>
+</body>
+
+</html>
