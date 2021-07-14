@@ -33,7 +33,7 @@ function appendTicket(ticketInfoObject) {
   <div class="ticket-content">
       <div class="ticket-info">
           <div class="ticket-id">${ticketId}</div>
-          <div class="ticket-delete"><i class="fas fa-trash"></i></div>
+          <div class="ticket-delete fas fa-trash"></div>
   
   </div>
   <div class="ticket-value">
@@ -41,4 +41,35 @@ function appendTicket(ticketInfoObject) {
   </div>
   </div>`
     ticketContainer.append(div);
+     //Implementing delete button
+     let deletebutton=div.querySelector(".ticket-delete");
+     deletebutton.addEventListener("click",function(e){
+       div.remove();
+       deleteTicketFromDb(ticketId);
+})
   }
+  /* <div class="ticket">
+<div class="ticket-header"></div>
+<div class="ticket-content">
+    <div class="ticket-info">
+        <div class="ticket-id">exampleId</div>
+        <div class="ticket-delete"><i class="fas fa-trash"></i></div>
+
+</div>
+<div class="ticket-value">
+    Apply CSS
+</div>
+</div>
+</div> */
+function deleteTicketFromDb(ticketId){
+let allTickets=myDB.getItem("allTickets");
+allTickets=JSON.parse(allTickets);
+//[{ticketObject1},{2},{3},...]
+let updatedTickets=allTickets.filter(function(ticketObject){
+   if(ticketObject.ticketId==ticketId){
+       return false //that means ticket object will not be included
+   }
+   return true//ticket object will be included
+})
+myDB.setItem("allTickets",JSON.stringify(updatedTickets));
+}

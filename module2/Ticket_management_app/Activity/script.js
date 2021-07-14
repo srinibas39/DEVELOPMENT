@@ -78,16 +78,3 @@ function handleKeyPress(e) {
 
 }
 
-/* <div class="ticket">
-<div class="ticket-header"></div>
-<div class="ticket-content">
-    <div class="ticket-info">
-        <div class="ticket-id">exampleId</div>
-        <div class="ticket-delete"><i class="fas fa-trash"></i></div>
-
-</div>
-<div class="ticket-value">
-    Apply CSS
-</div>
-</div>
-</div> */
