@@ -112,10 +112,101 @@ align-items: center;
 width: 70%;
 
 background-color: #bdc3c7;
+
+outline: none;
+
+padding: 10px;
+
+overflow: auto;
+font-family: 'Nunito', sans-serif;
+font-size: 34px;
 }
 .ticket-filter{
 
 height: 10%;
 
 width: 80%;
+
+opacity: 0.6;
+}
+.selected-filter{
+
+border: 3px solid;
+
+border-color: white;
+
+opacity: 1;
+}
+.ticket-filter:hover{
+    opacity: 1;
+}
+.ticket-container{
+
+padding: 20px;
+
+display: flex;
+
+flex-wrap: wrap;
+
+justify-content: space-evenly;
+
+grid-gap: 30px;
+
+align-content: start;
+}
+.ticket{
+
+border: 1px solid lightgray;
+
+height: 150px;
+
+width: 250px;
+}
+.ticket-header{
+
+height: 13%;
+
+
+}
+.ticket-content{
+
+height: 87%;
+
+display: flex;
+
+flex-direction: column;
+
+justify-content: space-around;
+
+align-items: center;
+
+padding: 10px;
+}
+.ticket-info{
+
+display: flex;
+
+width: 100%;
+
+justify-content: space-between;
+}
+.ticket-id{
+
+}
+.ticket-delete{
+
+}
+.ticket-value{
+    
+height: 85%;
+    
+width: 100%;
+    
+display: flex;
+    
+justify-content: center;
+    
+align-items: center;
+    
+word-break: break-all;
 }
