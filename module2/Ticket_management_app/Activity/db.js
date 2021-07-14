@@ -1,5 +1,6 @@
 const myDB = window.localStorage;
 let ticketContainer = document.querySelector(".ticket-container");
+let allFilterClasses=["red","green","blue","yellow","black"]
 
 function loadTicketFromDB() {
     let allTickets = myDB.getItem("allTickets");
@@ -51,6 +52,28 @@ function appendTicket(ticketInfoObject) {
   </div>
   </div>`
     ticketContainer.append(div);
+    //Implementing ticket header button
+    let ticketHeaderDiv=div.querySelector(".ticket-header");
+    ticketHeaderDiv.addEventListener("click",function(e){
+         let currentFilter=e.target.classList[1];
+         let indexOfCurrentFilter=allFilterClasses.indexOf(currentFilter);
+         let newIndex=(indexOfCurrentFilter+1)%allFilterClasses.length;
+         let newFilter=allFilterClasses[newIndex];
+
+         e.target.classList.remove(currentFilter);
+         e.target.classList.add(newFilter);
+
+         //store it to Db
+         let allTickets=JSON.parse(myDB.getItem("allTickets"));
+         for(let i=0;i<allTickets.length;i++){
+             if(allTickets[i].ticketId==ticketId){
+                 allTickets[i].ticketFilter=newFilter;
+             }
+         }
+         myDB.setItem("allTickets",JSON.stringify(allTickets));
+
+    })
+
     //Implementing delete button
     let deletebutton = div.querySelector(".ticket-delete");
     deletebutton.addEventListener("click", function (e) {
