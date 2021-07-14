@@ -210,3 +210,6 @@ align-items: center;
     
 word-break: break-all;
 }
+.active-filter{
+    border: 3px solid white;
+}

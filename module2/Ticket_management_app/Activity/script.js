@@ -12,14 +12,30 @@ for (let i = 0; i < filters.length; i++) {
 openmodal.addEventListener("click", openTicketModal);
 closemodal.addEventListener("click", closeTicketModal);
 function selectfilter(e) {
-  console.log(e);
+  if(e.target.classList.contains("active-filter")){
+     e.target.classList.remove("active-filter");
+    ticketContainer.innerHTML="";
+    loadTicketFromDB();
+  }
+  else{
+    if(document.querySelector(".active-filter")){
+      document.querySelector(".active-filter").classList.remove(".active-filter");
+    }
+       
+       e.target.classList.add("active-filter");
+       ticketContainer.innerHTML="";
+       let activefilter=e.target.classList[1];
+       loadSelectedTicketFromDb(activefilter);
+  }
+  /*console.log(e);
   let selectedFilter = e.target.classList[1];
-  //console.log(selectedFilter);
+  console.log(selectedFilter);
   if (ticketContainer.classList.length > 1) {
     ticketContainer.classList.remove(ticketContainer.classList[1]);
   }
-  ticketContainer.classList.add(selectedFilter);
+  ticketContainer.classList.add(selectedFilter);*/
 }
+
 function openTicketModal(e) {
   if (ticketModalOpen) {
     return;
