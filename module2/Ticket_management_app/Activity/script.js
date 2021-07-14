@@ -2,7 +2,8 @@ let filters = document.querySelectorAll(".filter");
 //["red","blue","green"...]
 let openmodal = document.querySelector(".openmodal");
 let closemodal = document.querySelector(".closemodal");
-let ticketContainer = document.querySelector(".ticket-container");
+
+
 let ticketModalOpen = false;
 let isTextTyped = false;
 for (let i = 0; i < filters.length; i++) {
@@ -62,10 +63,11 @@ function closeTicketModal(e) {
 function handleKeyPress(e) {
   if (e.key == "Enter" && isTextTyped && e.target.textContent) {
     let selectedFilter = document.querySelector(".selected-filter").classList[1];
-    console.log(selectedFilter);
+    //console.log(selectedFilter);
     ticketInfoObject = { ticketFilter: selectedFilter, ticketText: e.target.textContent };
     appendTicket(ticketInfoObject);
     closemodal.click();
+    saveTicketToDB(ticketInfoObject);
   }
   if (!isTextTyped) {
     isTextTyped = true;
@@ -74,23 +76,7 @@ function handleKeyPress(e) {
 
 
 }
-function appendTicket(ticketInfoObject) {
-  let { ticketFilter, ticketText } = ticketInfoObject;
-  let div = document.createElement("div");
-  div.classList.add("ticket");
-  div.innerHTML = `<div class="ticket-header ${ticketFilter}"></div>
-<div class="ticket-content">
-    <div class="ticket-info">
-        <div class="ticket-id">exampleId</div>
-        <div class="ticket-delete"><i class="fas fa-trash"></i></div>
 
-</div>
-<div class="ticket-value">
-    ${ticketText}
-</div>
-</div>`
-  ticketContainer.append(div);
-}
 /* <div class="ticket">
 <div class="ticket-header"></div>
 <div class="ticket-content">
