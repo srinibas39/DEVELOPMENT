@@ -64,7 +64,8 @@ function handleKeyPress(e) {
   if (e.key == "Enter" && isTextTyped && e.target.textContent) {
     let selectedFilter = document.querySelector(".selected-filter").classList[1];
     //console.log(selectedFilter);
-    ticketInfoObject = { ticketFilter: selectedFilter, ticketText: e.target.textContent };
+    let ticketId=uniqueId();
+    ticketInfoObject = { ticketFilter: selectedFilter, ticketText: e.target.textContent , ticketId:ticketId};
     appendTicket(ticketInfoObject);
     closemodal.click();
     saveTicketToDB(ticketInfoObject);

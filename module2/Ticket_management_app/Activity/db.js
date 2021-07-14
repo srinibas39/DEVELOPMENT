@@ -26,13 +26,13 @@ function saveTicketToDB(ticketInfoObject){
     }
 }
 function appendTicket(ticketInfoObject) {
-    let { ticketFilter, ticketText } = ticketInfoObject;
+    let { ticketFilter, ticketText, ticketId} = ticketInfoObject;
     let div = document.createElement("div");
     div.classList.add("ticket");
     div.innerHTML = `<div class="ticket-header ${ticketFilter}"></div>
   <div class="ticket-content">
       <div class="ticket-info">
-          <div class="ticket-id">exampleId</div>
+          <div class="ticket-id">${ticketId}</div>
           <div class="ticket-delete"><i class="fas fa-trash"></i></div>
   
   </div>
