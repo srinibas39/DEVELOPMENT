@@ -19,7 +19,7 @@ function selectfilter(e) {
   }
   else{
     if(document.querySelector(".active-filter")){
-      document.querySelector(".active-filter").classList.remove(".active-filter");
+      document.querySelector(".active-filter").classList.remove("active-filter");
     }
        
        e.target.classList.add("active-filter");
