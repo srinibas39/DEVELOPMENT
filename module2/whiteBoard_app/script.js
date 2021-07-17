@@ -15,7 +15,12 @@ window.addEventListener("resize", function() {
 let isPenDown = false;
 let line = [];
 let linesDB = [];
+let redoLineDB=[];
+
 canvas.addEventListener("mousedown", function(e) {
+    if(redoLineDB.length){
+        redoLineDB=[];
+    }
     isPenDown = true;
     let x = e.clientX;
     let y = e.clientY - 100;
@@ -30,6 +35,7 @@ canvas.addEventListener("mousedown", function(e) {
 
 })
 canvas.addEventListener("mousemove", function(e) {
+    
     if (isPenDown) {
         let x = e.clientX;
         let y = e.clientY - 100;
