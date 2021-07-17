@@ -1,8 +1,0 @@
-1. import FS(module in Nodejs)
-2. getAllFiles()[.doc,.mp4,.pdf,....]
-3. loop on each file
-   Then, getExtension()
-   suppose extension is .doc
-   Now check extension folder(checking documents folder exists or not)
-   If yes, Movefile()[move that file into the folder]
-   If No, Create document Folder Then movefile().  

@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.tools-container {
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drawing-container {}
+
+#canvas {}
+
+.toolbox {
+    /* border: 1px solid; */
+    height: 70%;
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: slategrey;
+}
+
+.tools {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tools img {
+    height: 50%;
+    width: 30%;
+}
