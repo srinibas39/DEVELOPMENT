@@ -36,3 +36,50 @@
     height: 50%;
     width: 30%;
 }
+.sticky{
+
+position: absolute;
+
+top: 200px;
+
+left: 500px;
+
+height: 200px;
+
+width: 250px;
+
+/* border: 1px solid; */
+}
+.sticky-header{
+
+height: 14%;
+
+width: 100%;
+
+display: flex;
+
+justify-content: flex-end;
+
+align-items: center;
+
+background-color: slategrey;
+}
+.sticky-header div{
+
+border-radius: 61px;
+
+height: 80%;
+
+width: 8%;
+
+margin: 2px;
+}
+.sticky-close{
+
+background: lightcoral;
+}
+.sticky-minimise{
+
+background-color: lightblue;
+}
+.sticky-content{height: 86%;width: 100%;background-color: wheat;outline: none;}
