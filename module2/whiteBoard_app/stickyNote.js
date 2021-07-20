@@ -1,28 +1,42 @@
 let sticky = document.querySelector("#sticky");
 
 
-sticky.addEventListener("click", stickyDisplay);
+sticky.addEventListener("click", function(e){
+    stickyDisplay();
+});
 
 
 
 
-function stickyDisplay() {
+function stickyDisplay(img) {
     let stickyDiv = document.createElement("div");
     stickyDiv.classList.add("sticky");
     stickyDiv.innerHTML = `<div class="sticky-header">
     <div class="sticky-close"></div>
-    <div class="sticky-minimise"></div>
-</div>
-<div class="sticky-content" contentEditable="true" spellcheck="false"></div>`;
+    <div class="sticky-minimise"></div>`;
 
-
-    
-    
     let stickyMinimise = stickyDiv.querySelector(".sticky-minimise");
     let stickyClose = stickyDiv.querySelector(".sticky-close");
-    let stickyContent = stickyDiv.querySelector(".sticky-content");
     let stickyHeader = stickyDiv.querySelector(".sticky-header");
+    let stickyContent;
    
+     if(img){
+         let stickyImgDiv= document.createElement("div");
+         stickyImgDiv.classList.add("sticky-content");
+         stickyImgDiv.append(img);
+         stickyDiv.append(stickyImgDiv);
+        stickyContent=stickyImgDiv;
+         
+     }
+     else{
+        //<div class="sticky-content" contentEditable="true" spellcheck="false"></div>;
+       let stickyContentDiv =document.createElement("div");
+       stickyContentDiv.classList.add("sticky-content");
+       stickyContentDiv.setAttribute("contentEditable","true");
+       stickyContentDiv.setAttribute("spellCheck","false");
+       stickyDiv.append(stickyContentDiv)
+       stickyContent=stickyContentDiv 
+     }
 
 
     stickyMinimise.addEventListener("click", function (e) {

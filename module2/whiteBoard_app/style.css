@@ -83,3 +83,12 @@ background: lightcoral;
 background-color: lightblue;
 }
 .sticky-content{height: 86%;width: 100%;background-color: wheat;outline: none;}
+
+#photo-upload{
+    display: none;
+}
+.sticky-content img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
