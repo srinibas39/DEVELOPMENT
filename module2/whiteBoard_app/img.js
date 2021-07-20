@@ -1,5 +1,6 @@
 let imageDiv=document.querySelector("#photo");
 let input=document.querySelector("#photo-upload");
+
 imageDiv.addEventListener("click",function(e){
     input.click();
 })
@@ -14,3 +15,4 @@ imageDiv.addEventListener("change",function(e){
 
     
 })
+
