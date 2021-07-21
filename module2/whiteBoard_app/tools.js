@@ -25,11 +25,15 @@ function redoLine(e) {
 }
 
 function drawLines(linesDB) {
+    let currentLineWidth=ctx.lineWidth;
+    let currentStrokeStyle=ctx.strokeStyle;
     for (let i = 0; i < linesDB.length; i++) {
         let line = linesDB[i];
         for (let j = 0; j < line.length; j++) {
             let pointObject = line[j];
             if (pointObject.type == "md") {
+                ctx.lineWidth=pointObject.lineWidth;
+                ctx.strokeStyle=pointObject.strokeStyle;
                 ctx.beginPath();
                 ctx.moveTo(pointObject.x, pointObject.y);
             }
@@ -40,5 +44,7 @@ function drawLines(linesDB) {
             }
         }
     }
+    ctx.lineWidth=currentLineWidth;
+    ctx.strokeStyle-currentStrokeStyle;
 
 }
