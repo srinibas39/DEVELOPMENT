@@ -12,8 +12,29 @@
 <body>
     <div class="tools-container">
         <div class="toolbox">
-            <div class="tools"><img src="./NewIcons/Black_Pencil.svg" alt=""></div>
-            <div class="tools"><img src="./NewIcons/Eraser.svg" alt=""></div>
+            <div class="tools active-tool" id="pen"><img src="./NewIcons/Black_Pencil.svg" alt="">
+                <div class="tools-option hide">
+                    <div class="pen-size">
+                        <input type="range" name="" id="pensize">
+                    </div>
+                    <div class="pen-colors">
+                        <div class="black"></div>
+                        <div class="green"></div>
+                        <div class="blue"></div>
+                        <div class="yellow"></div>
+                        <div class="red"></div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="tools fade" id="eraser"><img src="./NewIcons/Eraser.svg" alt="">
+                <div class="tools-option hide">
+                    <div class="eraser-size">
+                        <input type="range" name="" id="">
+                    </div>
+                   
+                </div>
+            </div>
             <div class="tools" id="undo"><img src="./NewIcons/Undo.svg" alt=""></div>
             <div class="tools" id="redo"><img src="./NewIcons/Redo.svg" alt=""></div>
             <div class="tools" id="sticky"><img src="./NewIcons/StickyNote.svg" alt=""></div>
@@ -36,7 +57,7 @@
     <script src="./stickyNote.js"></script>
     <script src="./img.js"></script>
     <script src="./download.js"></script>
-    
+    <script src="./pen&eraser.js"></script>
 
 </body>
 
