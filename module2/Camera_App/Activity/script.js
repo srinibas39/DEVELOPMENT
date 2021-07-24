@@ -1,6 +1,6 @@
 let videoElement = document.querySelector("video");
-let recordButton = document.querySelector("#record");
-let captureButton=document.querySelector("#capture");
+let recordButton = document.querySelector(".videoR");
+let captureButton=document.querySelector(".videoC");
 let mediaRecorder;
 let recording = false;
 
@@ -21,9 +21,12 @@ let recording = false;
 
     mediaRecorder.onstart = function () {
         console.log("video has been started");
+        recordButton.classList.add("animate-recording")
+
     }
     mediaRecorder.ondataavailable = function (e) {
         // console.log(e.data);
+        recordButton.classList.remove("animate-recording")
         console.log("inside on data available");
         let videoData = new Blob([e.data], { type: "video/mp4" });
         console.log(videoData);
@@ -41,25 +44,34 @@ let recording = false;
         if (recording) {
             //stop the recording
             mediaRecorder.stop();
-            recordButton.innerHTML="Record";
+            // recordButton.innerHTML="Record";
             recording = false;
 
         }
         else {
             //start the recording
             mediaRecorder.start();
-            recordButton.innerHTML = "Recording...";
+            // recordButton.innerHTML = "Recording...";
             recording = true;
         }
     })
 
     captureButton.addEventListener("click",function(){
-        let canvas=document.querySelector("#canvas");
+        // let canvas=document.querySelector("#canvas");
+        captureButton.classList.add("animate-capture");
+        setTimeout(function(){
+            captureButton.classList.remove("animate-capture");
+        },1000)
+        let canvas=document.createElement("canvas");
         //set canvas height and width
         canvas.height=640;
         canvas.width=800;
         let ctx=canvas.getContext('2d');
         ctx.drawImage(videoElement,0,0);
+        let aTag=document.createElement("a");
+        aTag.href=canvas.toDataURL("Image/jpg");;
+        aTag.download=`Image${Date.now()}.jpg`;
+        aTag.click();
 
     })
 

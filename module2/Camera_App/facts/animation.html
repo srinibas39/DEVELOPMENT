@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        .box{
+          background-color:red;
+          height: 100px;
+          width: 100px;
+          margin: 10px;
+        }
+        .one{
+            animation-name: fadeInFadeOut;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+
+        }
+        .two{
+            animation-name: slidingBox;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+
+        }
+        .three{
+            animation-name: scaleInAndOut;
+            animation-iteration-count: infinite;
+            animation-duration: 1s;
+
+            
+
+        }
+        .example{
+            border: 10px solid purple;
+            border-radius: 100px ;
+        }
+       
+        @keyframes  fadeInFadeOut {
+            0%{
+               opacity: 1;
+            }
+            50%{
+                opacity: 0.2;
+            }
+            100%{
+                 opacity: 1;
+            }
+            
+        }
+        @keyframes slidingBox {
+            0%{
+               transform: translateX(0px);
+            }
+            50%{
+                transform: translateX(100px);
+            }
+            100%{
+                transform: translateX(0px);
+            }
+        }
+        @keyframes scaleInAndOut{
+            0%{
+               transform: scale(1);
+            }
+            50%{
+               transform:scale(1.2) ;
+            }
+            100%{
+              transform: scale(1);
+            }
+        }
+        
+    </style>
+</head>
+<body>
+ <div class="box one"></div>
+ <div class="box two"></div>
+ <div class="box three"></div>   
+ 
+ </div>
+ 
+    
+</body>
+</html>
