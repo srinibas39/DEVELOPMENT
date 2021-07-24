@@ -1,5 +1,6 @@
 let videoElement = document.querySelector("video");
 let recordButton = document.querySelector("#record");
+let captureButton=document.querySelector("#capture");
 let mediaRecorder;
 let recording = false;
 
@@ -13,7 +14,7 @@ let recording = false;
 // })
 
 (async function () {
-    let constraint = { video: true, audio:true };
+    let constraint = { video: true };
     let mediaStream = await navigator.mediaDevices.getUserMedia(constraint);
     videoElement.srcObject = mediaStream;
     mediaRecorder = new MediaRecorder(mediaStream);
@@ -50,6 +51,16 @@ let recording = false;
             recordButton.innerHTML = "Recording...";
             recording = true;
         }
+    })
+
+    captureButton.addEventListener("click",function(){
+        let canvas=document.querySelector("#canvas");
+        //set canvas height and width
+        canvas.height=640;
+        canvas.width=800;
+        let ctx=canvas.getContext('2d');
+        ctx.drawImage(videoElement,0,0);
+
     })
 
 
