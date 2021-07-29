@@ -1,8 +1,11 @@
 let videoElement = document.querySelector("video");
 let recordButton = document.querySelector(".videoR");
-let captureButton=document.querySelector(".videoC");
+let captureButton = document.querySelector(".videoC");
+let videoFilters = document.querySelectorAll(".filter");
+let filterSelected = "none";
 let mediaRecorder;
 let recording = false;
+
 
 // let constraint={video:true};
 // navigator.mediaDevices.getUserMedia(constraint).then(function(mediaStream){
@@ -13,6 +16,8 @@ let recording = false;
 //     console.log(err);
 // })
 
+
+
 (async function () {
     let constraint = { video: true };
     let mediaStream = await navigator.mediaDevices.getUserMedia(constraint);
@@ -21,7 +26,7 @@ let recording = false;
 
     mediaRecorder.onstart = function () {
         console.log("video has been started");
-        recordButton.classList.add("animate-recording")
+        recordButton.classList.add("animate-recording");
 
     }
     mediaRecorder.ondataavailable = function (e) {
@@ -30,7 +35,7 @@ let recording = false;
         console.log("inside on data available");
         let videoData = new Blob([e.data], { type: "video/mp4" });
         console.log(videoData);
-        let videoURL=URL.createObjectURL(videoData);
+        let videoURL = URL.createObjectURL(videoData);
         let aTag = document.createElement("a");
         aTag.href = videoURL;
         aTag.download = `video${Date.now()}.mp4`;
@@ -56,25 +61,64 @@ let recording = false;
         }
     })
 
-    captureButton.addEventListener("click",function(){
+    captureButton.addEventListener("click", function () {
         // let canvas=document.querySelector("#canvas");
         captureButton.classList.add("animate-capture");
-        setTimeout(function(){
+        setTimeout(function () {
             captureButton.classList.remove("animate-capture");
-        },1000)
-        let canvas=document.createElement("canvas");
+        }, 1000)
+        let canvas = document.createElement("canvas");
         //set canvas height and width
-        canvas.height=640;
-        canvas.width=800;
-        let ctx=canvas.getContext('2d');
-        ctx.drawImage(videoElement,0,0);
-        let aTag=document.createElement("a");
-        aTag.href=canvas.toDataURL("Image/jpg");;
-        aTag.download=`Image${Date.now()}.jpg`;
+        canvas.height = 640;
+        canvas.width = 800;
+        let ctx = canvas.getContext('2d');
+        ctx.drawImage(videoElement, 0, 0);
+        let aTag = document.createElement("a");
+        aTag.href = canvas.toDataURL("Image/jpg");;
+        aTag.download = `Image${Date.now()}.jpg`;
         aTag.click();
 
     })
-
-
-
 })();
+
+for (let i = 0; i < videoFilters.length; i++) {
+    videoFilters[i].addEventListener("click", function (e) {
+        //console.log(e);
+        let currentFilterSelected = e.target.style.backgroundColor;
+        if (currentFilterSelected == "") {
+            if (document.querySelector(".filter-div")) {
+
+                document.querySelector(".filter-div").remove();
+                filterSelected = "none";
+                return;
+                //Case when you click filter without styling
+            }
+
+        }
+        console.log(currentFilterSelected);
+        if (filterSelected == currentFilterSelected) {
+            return;
+            //case when you click filter multiple times
+        }
+
+        let filterDiv = document.createElement("div");
+        filterDiv.classList.add("filter-div");
+        filterDiv.style.backgroundColor = currentFilterSelected;
+        
+        
+        
+        
+        if (filterSelected == "none") {
+            document.body.append(filterDiv);
+            //case when you a click a filter and beforehand there was no filter clicked
+        }
+        else {
+            document.querySelector(".filter-div").remove();
+            document.body.append(filterDiv);
+            //case when you a click a filter and beforehand there was a filter clicked
+        }
+         filterSelected = currentFilterSelected;
+
+
+    })
+}
