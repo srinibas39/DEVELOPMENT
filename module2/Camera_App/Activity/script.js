@@ -2,10 +2,14 @@ let videoElement = document.querySelector("video");
 let recordButton = document.querySelector(".videoR");
 let captureButton = document.querySelector(".videoC");
 let videoFilters = document.querySelectorAll(".filter");
+let zoomIn=document.querySelector(".zoom-in");
+let zoomOut=document.querySelector(".zoom-out");
 let filterSelected = "none";
 let mediaRecorder;
 let recording = false;
-
+let minzoom=1;
+let maxzoom=2;
+let currentzoom=1;
 
 // let constraint={video:true};
 // navigator.mediaDevices.getUserMedia(constraint).then(function(mediaStream){
@@ -122,3 +126,22 @@ for (let i = 0; i < videoFilters.length; i++) {
 
     })
 }
+
+//zoom in and zoom out
+zoomIn.addEventListener("click",function(e){
+    if(currentzoom+0.1>maxzoom){
+        return;
+    }
+    currentzoom=currentzoom+0.1;
+    videoElement.style.transform=`scale(${currentzoom})`;
+
+})
+zoomOut.addEventListener("click",function(e){
+    if(currentzoom-0.1<minzoom){
+        return;
+    }
+    currentzoom=currentzoom-0.1;
+    videoElement.style.transform=`scale(${currentzoom})`;
+
+})
+
