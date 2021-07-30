@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndexedDB</title>
+</head>
+<body>
+    <div>
+       db Name:<input type="text" id="db-name">
+    </div>
+    <div>
+       db version:<input type="text" id="db-version">
+    </div>
+    <button id="open-db">Open Database</button>
+    <script>
+        let dbname=document.getElementById("db-name");
+        let dbversion=document.getElementById("db-version");
+        let opendb=document.getElementById("open-db");
+        let db;
+
+        opendb.addEventListener("click",opendatabase);
+
+        function opendatabase(e){
+          let opendbrequest= indexedDB.open(dbname.value,dbversion.value);
+          opendbrequest.onupgradeneeded=function(e){
+              alert("Inside onupgrade needed !!");
+              console.log(e);
+               db=e.target.result;//access the db;
+               db.createObjectStore("Media",{keyPath:"mid"});//(TableName,KeyPath(which is unique))
+
+          }
+          opendbrequest.onsuccess=function(e){
+               alert("Inside onsuccess!!");
+               console.log(e);
+               db=e.target.result;//access thr db;
+          }
+          opendbrequest.onerror=function(e){
+               alert("Inside onerror");
+          }
+        }
+
+    </script>
+    
+</body>
+</html>
