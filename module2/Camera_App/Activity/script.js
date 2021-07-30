@@ -76,6 +76,11 @@ let currentzoom=1;
         canvas.height = 640;
         canvas.width = 800;
         let ctx = canvas.getContext('2d');
+        if(currentzoom!=1){
+            ctx.translate(canvas.width/2,canvas.height/2);
+            ctx.scale(2,2);
+            ctx.translate(-canvas.width/2,-canvas.height/2);
+        }
         ctx.drawImage(videoElement, 0, 0);
         let aTag = document.createElement("a");
         aTag.href = canvas.toDataURL("Image/jpg");;
@@ -144,4 +149,6 @@ zoomOut.addEventListener("click",function(e){
     videoElement.style.transform=`scale(${currentzoom})`;
 
 })
+
+
 
