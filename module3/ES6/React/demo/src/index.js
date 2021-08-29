@@ -6,10 +6,15 @@ import MyComp from './MyComp';
 
 ReactDOM.render(<div>
     <MyComp/>
+     <hr/>
     <MyComp/>
+    <hr/>
     <MyComp/>
+    <hr/>
     <MyComp/>
+    <hr/>
     <MyComp/>
+    <hr/>
 </div>,document.getElementById('root'));
 
 
