@@ -16,7 +16,7 @@ import React from 'react';
 class MyComp extends React.Component{
 
     state={
-        someNumber:2,
+        someNumber:0,
     };
 
     render =()=>{
@@ -31,7 +31,7 @@ class MyComp extends React.Component{
                     ()=>[
                         this.setState({someNumber:this.state.someNumber-1})
                     ]
-                }>{"Increment"}</button>
+                }>{"Decrement"}</button>
                 <div>{this.state.someNumber}</div>
             </div>
         )
