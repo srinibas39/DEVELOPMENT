@@ -1,21 +1,25 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import NavBar from "./NavBar";
 import Filter from "./Filter";
 import Search from "./Search";
 import Table from "./Table";
+import Login from "./Login";
+import Rentals from "./Rentals";
+import Customers from "./Customer";
 
 class App extends React.Component {
     state = {
         movies: [],
         genre: [],
         selectedFilter: "Genre",
-        search:""
-      
+        search: ""
+
     }
-    updateSearch=(text)=>{
-        this.setState({search:text})
+    updateSearch = (text) => {
+        this.setState({ search: text })
     }
-    
+
 
     setFilter = (filter) => {
         this.setState({ selectedFilter: filter })
@@ -24,7 +28,7 @@ class App extends React.Component {
         let index = this.state.movies.findIndex((el) => {
             return id == el._id;
         })
-        
+
         let moviesCopy = this.state.movies.map((el) => el);
         if (moviesCopy[index].liked) {
             moviesCopy[index].liked = false;
@@ -34,12 +38,12 @@ class App extends React.Component {
         }
         this.setState({ movies: moviesCopy });
     }
-    
+
     deleteMovies = (id) => {
-       let moviesFiltered= this.state.movies.filter((el) => {
+        let moviesFiltered = this.state.movies.filter((el) => {
             return el._id != id;
         })
-        this.setState({movies:moviesFiltered});
+        this.setState({ movies: moviesFiltered });
     }
     componentDidMount() {
 
@@ -65,28 +69,49 @@ class App extends React.Component {
     render = () => {
         return (
 
-            <div>
 
-                <NavBar />
-                <div class="row">
-                    <Filter 
-                    selectedFilter={this.state.selectedFilter} 
-                    setFilter={this.setFilter} 
-                    genreData={this.state.genre} />
-                    <div class="col-9">
-                        <Search 
-                        search={this.state.search}
-                        updateSearch={this.updateSearch}
-                        movies={this.state.movies} />
-                        <Table 
-                        search={this.state.search}
-                        deleteMovies={this.deleteMovies}
-                        handleToggle={this.handleToggle} 
-                        movies={this.state.movies} 
-                        selectedFilter={this.state.selectedFilter} />
-                    </div>
+            <Router>
+                <div>
+                    <NavBar />
+                    <Switch>
+                        <Route exact path="/login">
+                            <Login />
+                        </Route>
+                        <Route path="/customers">
+                            <Customers />
+                        </Route>
+                        <Route path="/rentals">
+                            <Rentals />
+                        </Route>
+
+                        <Route path="/">
+
+                            <div class="row">
+                                <Filter
+                                    selectedFilter={this.state.selectedFilter}
+                                    setFilter={this.setFilter}
+                                    genreData={this.state.genre} />
+                                <div class="col-9">
+                                    <Search
+                                        search={this.state.search}
+                                        updateSearch={this.updateSearch}
+                                        movies={this.state.movies} />
+                                    <Table
+                                        search={this.state.search}
+                                        deleteMovies={this.deleteMovies}
+                                        handleToggle={this.handleToggle}
+                                        movies={this.state.movies}
+                                        selectedFilter={this.state.selectedFilter} />
+                                </div>
+                            </div>
+
+                        </Route>
+                    </Switch>
+
+
+
                 </div>
-            </div>
+            </Router>
 
 
 
