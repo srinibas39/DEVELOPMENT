@@ -4,56 +4,70 @@ import Filter from "./Filter";
 import Search from "./Search";
 import Table from "./Table";
 
-class App extends React.Component{
-    state={
-        movies:[],
-        genre:[],
-        selectedFilter:"Genre"
+class App extends React.Component {
+    state = {
+        movies: [],
+        genre: [],
+        selectedFilter: "Genre"
     }
-    setFilter=(filter)=>{
-        this.setState({selectedFilter:filter})
+    setFilter = (filter) => {
+        this.setState({ selectedFilter: filter })
     }
-  
-    componentDidMount(){
+    handleToggle = (id) => {
+        let index = this.state.movies.findIndex((el) => {
+            return id == el._id;
+        })
 
-        let f=async ()=>{
-            let moviesRes= await fetch("http://localhost:4000/movies");
-            let genreRes= await fetch("http://localhost:4000/genre")
+        let moviesCopy=this.state.movies.map((el)=>el);
+        if(moviesCopy[index].liked){
+            moviesCopy[index].liked=false;
+        }
+        else{
+            moviesCopy[index].liked=true;
+        }
+        this.setState({movies:moviesCopy});
+    }
+
+    componentDidMount() {
+
+        let f = async () => {
+            let moviesRes = await fetch("http://localhost:4000/movies");
+            let genreRes = await fetch("http://localhost:4000/genre")
             console.log(moviesRes);
             console.log(genreRes);
-            let movieJson=await moviesRes.json();
-            let genreJson=await genreRes.json();
+            let movieJson = await moviesRes.json();
+            let genreJson = await genreRes.json();
             console.log(movieJson);
             console.log(genreJson);
 
-           this.setState({movies:movieJson,genre:genreJson})
+            this.setState({ movies: movieJson, genre: genreJson })
 
         }
         f();
-        
+
     }
 
 
 
-    render=()=>{
-        return(
-              
+    render = () => {
+        return (
+
             <div>
 
-                <NavBar/>
+                <NavBar />
                 <div class="row">
-                    <Filter selectedFilter={this.state.selectedFilter} setFilter={this.setFilter} genreData={this.state.genre}  />
+                    <Filter selectedFilter={this.state.selectedFilter} setFilter={this.setFilter} genreData={this.state.genre} />
                     <div class="col-9">
-                        <Search/>
-                        <Table movies={this.state.movies} selectedFilter={this.state.selectedFilter}/>
+                        <Search />
+                        <Table handleToggle={this.handleToggle} movies={this.state.movies} selectedFilter={this.state.selectedFilter} />
                     </div>
                 </div>
             </div>
-            
-          
-             
-          
-            
+
+
+
+
+
         )
     }
 }
