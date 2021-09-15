@@ -1,14 +1,32 @@
 import React from "react";
 
-let Pagination=()=>{
+let Pagination=(props)=>{
+ 
+    let pagesList=[];
+    for(let i=1;i<=props.noOfPages;i++){
+      pagesList.push(i);
+    }
+
+ 
+
+ 
     return(
         <nav aria-label="Page navigation example">
         <ul class="pagination">
-          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+           {
+             pagesList.map((page)=>{
+                 return(
+                    <li 
+                    onClick={(e)=>{
+                      props.handlePagination(page);
+                    }}
+                    class={`page-item ${props.currPage===page?"active":""}`}><a class="page-link" href="#">{page}</a></li>
+                 )
+             })
+           }
+         
+         
+         
         </ul>
       </nav>
     )

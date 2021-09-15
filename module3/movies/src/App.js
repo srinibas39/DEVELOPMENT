@@ -8,8 +8,15 @@ class App extends React.Component {
     state = {
         movies: [],
         genre: [],
-        selectedFilter: "Genre"
+        selectedFilter: "Genre",
+        search:""
+      
     }
+    updateSearch=(text)=>{
+        this.setState({search:text})
+    }
+    
+
     setFilter = (filter) => {
         this.setState({ selectedFilter: filter })
     }
@@ -67,8 +74,12 @@ class App extends React.Component {
                     setFilter={this.setFilter} 
                     genreData={this.state.genre} />
                     <div class="col-9">
-                        <Search />
+                        <Search 
+                        search={this.state.search}
+                        updateSearch={this.updateSearch}
+                        movies={this.state.movies} />
                         <Table 
+                        search={this.state.search}
                         deleteMovies={this.deleteMovies}
                         handleToggle={this.handleToggle} 
                         movies={this.state.movies} 
