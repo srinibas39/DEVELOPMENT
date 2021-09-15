@@ -49,7 +49,11 @@ let Table = (props) => {
                     )}
                   </td>
                   <td>
-                    <button className="delete">Delete</button>
+                    <button 
+                     onClick={(e)=>{
+                        props.deleteMovies(el._id)
+                     }}
+                     className="delete">Delete</button>
                   </td>
                 </tr>
               );
@@ -61,4 +65,5 @@ let Table = (props) => {
     </div>
   );
 };
+
 export default Table;
