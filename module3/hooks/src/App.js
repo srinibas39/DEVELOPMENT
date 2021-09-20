@@ -1,0 +1,56 @@
+import React, { useEffect, useState } from "react";
+
+let App=()=>{
+  let[count,SetCount]=useState(0);
+  let[process,Setprocess]=useState("running");
+
+  console.log("This will run multple times");
+  
+    //case 1
+   useEffect(()=>{
+     console.log("This function is exexcuted only once");
+   },[])
+  // case 2
+   useEffect(()=>{
+     console.log("2nd case of useEffect");
+   })
+  // case 3
+  useEffect(()=>{
+    let arr=process.split("i");
+    console.log(arr);
+  },[process])
+
+
+   
+  return(
+    <div>
+      <button
+      onClick={
+        (e)=>{
+           SetCount(count+1)
+        }
+      }
+      >+</button>
+      <p>{count}</p>
+      <button
+      onClick={
+        (e)=>{
+           SetCount(count-1);
+        }
+      }
+      >-</button>
+    <p>{process}</p>
+    <button
+    onClick={
+      (e)=>{
+       Setprocess("stop");
+      }
+    }
+    ></button>
+    </div>
+
+
+  )
+}
+
+export default App;
