@@ -19,13 +19,6 @@ let Login=()=>{
                signInWithGoogle();
          }}
          type="button" class="btn btn-primary m-5">Login with Google</button>
-        <button 
-        onClick={
-            (e)=>{
-               auth.signOut();
-            }
-        }
-        type="button" class="btn btn-primary ">Logout</button>
        </>
     )
 

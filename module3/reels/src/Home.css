@@ -1,0 +1,15 @@
+.btn-logout{
+    position: fixed;
+    bottom: 5rem;
+    right: 5rem;
+    border: none;
+    height: 3.5rem;
+    border-radius: 5rem;
+}
+.video-container{
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;  
+}

@@ -1,0 +1,105 @@
+.videocard-container{
+    height: 100%;
+    width: 35%;
+    border: 1px solid white;
+    margin: auto;
+    scroll-snap-align: start;
+    position: relative;
+}
+.video{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+.videocard-para{
+    color: white;
+    font-weight: bolder;
+    position: absolute;
+    bottom: 7rem;
+    left: 1rem;
+    z-index: 2;
+}
+.videocard-music{
+    color: white;
+    position: absolute;
+    display: flex;
+    bottom: 6rem;
+    width: 85%;
+    left: 1.6rem;
+    z-index: 2;
+}
+.videocard-logo{
+    color: white;
+    position: absolute;
+    bottom: 6rem;
+    width: 40%;
+    left:1rem;
+    z-index: 2;
+
+}
+.videocard-heart{
+    color: red;
+    font-size: xx-large;
+    position: absolute;
+    bottom: 17rem;
+    right: 1rem;
+    z-index: 2;
+}
+.videocard-chat{
+    color: white;
+    font-size: xx-large;
+    position: absolute;
+    bottom: 20rem;
+    right: 1rem;
+    z-index: 2;
+}
+.videocard-commentbox{
+    height: 40%;
+    width: 100%;
+    position: absolute;
+    background-color: white;
+    bottom: 0rem;
+    z-index: 2;
+
+}
+
+.videocard-commentbox-display-post{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 5px;
+
+}
+.videocard-commentbox-display-post img{
+    height: 15%;
+    width: 15%;
+    border-radius: 50%;
+}
+.user-info{
+    padding: 5px;
+    width: 85%;
+
+}
+.user-info h5{
+
+}
+.user-info p{
+
+}
+
+
+.videocard-commentbox-comment-form{
+    position: absolute;
+    bottom: 0rem;
+    width: 100%;
+;
+
+}
+.videocard-commentbox-comment{
+    width: 79%;
+}
+.comment-submit{
+    width: 21%;
+    color: blue;
+}
