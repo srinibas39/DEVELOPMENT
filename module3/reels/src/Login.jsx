@@ -13,7 +13,7 @@ let Login=()=>{
 
     return(
        <>
-        {user?<Redirect to="/Home"/>:""}
+        {user?<Redirect to="/"/>:""}
         <button
          onClick={(e)=>{
                signInWithGoogle();
