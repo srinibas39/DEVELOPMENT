@@ -13,3 +13,12 @@
     overflow-y: scroll;
     scroll-snap-type: y mandatory;  
 }
+input{
+    position: fixed;
+    bottom: 5rem;
+    right: -3rem;
+    border: none;
+    height: 8.5rem;
+    border-radius: 1rem;
+    color: white;
+}
