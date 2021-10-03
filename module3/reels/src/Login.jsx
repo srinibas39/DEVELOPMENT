@@ -1,6 +1,6 @@
 
 import React, { useContext } from "react";
-import {signInWithGoogle,auth} from "./firebase";
+import {signInWithGoogle} from "./firebase";
 import {authContext} from "./AuthProvider"
 import { Redirect } from "react-router";
 
