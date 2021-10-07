@@ -21,6 +21,8 @@
     "cheerio": "^1.0.0-rc.6",
     "json2xls": "^0.1.2",
     "puppeteer": "^10.0.0",
+    "react-redux": "^7.2.5",
+    "redux": "file:module3/redux",
     "request": "^2.88.2"
   }
 }

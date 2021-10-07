@@ -87,9 +87,11 @@ let Videocard = (props) => {
 
       {comment ? (
         <div className="videocard-commentbox">
-          {commentPost.map((el) => {
+          {commentPost.map((el,idx) => {
             return (
-              <div className="videocard-commentbox-display-post">
+              <div
+              key={idx}
+               className="videocard-commentbox-display-post">
                 <img src={el.photoURL} />
                 <div className="user-info">
                   <h5>{el.name}</h5>

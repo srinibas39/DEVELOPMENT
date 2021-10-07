@@ -5,6 +5,7 @@
     border: none;
     height: 3.5rem;
     border-radius: 5rem;
+    z-index: 2;
 }
 .video-container{
     height: 100vh;
