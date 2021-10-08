@@ -1,0 +1,6 @@
+.product-components{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 7rem 2rem;
+}

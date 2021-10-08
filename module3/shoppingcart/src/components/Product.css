@@ -1,0 +1,32 @@
+.product {
+  border: 1px solid;
+  height: 22rem;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  box-shadow: 0px 0px 10px 2px #aaa;
+}
+.product-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.product-button {
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product-button button {
+  height: 2.5rem;
+  width: 7rem;
+  background-color: #D1D5DB;
+  border: none;
+  border-radius: 5px;
+}
+.product-img img {
+  height: 90%;
+  width: 90%;
+  object-fit: contain;
+}
