@@ -1,0 +1,43 @@
+.preview-container{
+    height: 91vh;
+    width: 100vw;
+    display: flex;
+
+}
+.preview-img-container,.preview-listing{
+    height: 100%;
+    width: 50%;
+    
+}
+.preview-img-container img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    padding: 4rem;
+}
+.preview-listing{
+    display: flex;
+    flex-direction: column;
+}
+.preview-listing h1{
+    height: 3rem;
+    width: 7rem;
+    display: block;
+    margin: auto;
+    padding: 1rem;
+}
+.preview-listing p{
+    height: 44%;
+    width: 80%;
+    display: block;
+    margin: auto;
+}
+.preview-listing button{
+    height: 2.5rem;
+    width: 7rem;
+    background-color: #D1D5DB;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin: auto;
+}

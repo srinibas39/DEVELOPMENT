@@ -7,7 +7,6 @@ let Home=()=>{
        <Product/>
        <Product/>
        <Product/>
-
        </div>
        </>
    )

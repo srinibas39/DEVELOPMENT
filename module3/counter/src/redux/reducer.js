@@ -21,6 +21,6 @@ export const loggedReducer = (state = false, action) => {
             return false;
 
        default:
-           return false;     
+           return state;     
     }
 }
