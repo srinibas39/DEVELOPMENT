@@ -20,8 +20,7 @@
     flex-direction: column;
 }
 .preview-listing h1{
-    height: 3rem;
-    width: 7rem;
+
     display: block;
     margin: auto;
     padding: 1rem;

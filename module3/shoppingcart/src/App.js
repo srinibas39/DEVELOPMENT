@@ -15,7 +15,7 @@ let App=()=>{
          <Route exact path="/cart">
            <Cart/>
          </Route>
-         <Route exact path="/preview">
+         <Route exact path="/preview/:id">
            <Preview/>
          </Route>
        </Switch>
