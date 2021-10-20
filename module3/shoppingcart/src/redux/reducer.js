@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART } from "./constants"
+
 
 let initialState = [{
     id: 0,
@@ -30,18 +30,20 @@ let initialState = [{
 export const cartReducer = (state = initialState, action) => {
 
     let cp=[];
-    let id=-1
+    let id=-1;
     switch (action.type) {
-        case ADD_TO_CART:
+        case "ADD_TO_CART":
             cp = state.map(el => el);//copying the object,We dont directly mutate the state
              id = action.payload;
             cp[id].qty = cp[id].qty + 1;
+            return cp;
 
-        case REMOVE_FROM_CART:
+        case "REMOVE_FROM_CART":
             cp = state.map(el => el);
             id = action.payload;
 
             if (cp[id].qty > 0)  cp[id].qty = cp[id].qty - 1;
+            return cp;
 
         default:
             return state;    

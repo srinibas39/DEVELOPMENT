@@ -1,7 +1,10 @@
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { addToCartCreator } from "../redux/action";
 import "./Preview.css"
-let Preview=()=>{
+let Preview=()=>{ 
+     let dispatch=useDispatch()
     let {id}=useParams();
     let state=useSelector((state)=>state)
     let el=state[id];
@@ -13,7 +16,11 @@ let Preview=()=>{
             <div className="preview-listing">
                 <h1>{el.name}</h1>
                 <p>{el.description}</p>
-                <button>Add to cart</button>
+                <button
+                onClick={(e)=>{
+                  dispatch(addToCartCreator(el.id))
+                }}
+                >Add to cart</button>
             </div>
         </div>
     )
