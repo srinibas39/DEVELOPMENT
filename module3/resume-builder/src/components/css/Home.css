@@ -1,0 +1,33 @@
+.Home{
+    height: 90vh;
+    width: 100vw;
+
+}
+.template-container{
+    height: 95%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.template{
+    margin: 4rem;
+    height: 20rem;
+    width: 15rem;
+    border: 1px solid;
+}
+img{
+  height: 100%;
+  width:100%;
+}
+.btn-logout{
+    position: fixed;
+    bottom: 4rem;
+    right: 20px;
+    border: none;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    font-size: 13px;
+
+}
