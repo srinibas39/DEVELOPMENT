@@ -10,3 +10,10 @@ export const templateCreator=(code)=>{
         payload:code,
     }
 }
+
+export const detailsCreator=(details)=>{
+    return{
+        type:"SET_DETAILS",
+        payload:details,
+    }
+}

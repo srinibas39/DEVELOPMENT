@@ -14,3 +14,19 @@ export const templateReducer=(state=null,action)=>{
             return state;
     }
 }
+let initialState={
+    email:"",
+    password:"",
+    fname:"",
+    lname:"",
+    state:"",
+    phn:"",
+}
+export const detailsReducer=(state=initialState,action)=>{
+    switch(action.type){
+       case "SET_DETAILS":
+           return {...state,...action.payload}
+       default:
+           return state;
+    }
+}

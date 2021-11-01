@@ -1,0 +1,13 @@
+.previewData{
+    height: 91.5vh;
+    display: flex;
+
+}
+.form{
+    height: 100%;
+    width: 50%;
+    border: 1px solid;
+}
+h3{
+    text-align: center;
+}
